@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="fr"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oriental Chic — Le Goût de la Tradition</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"><style>:root {
+<!DOCTYPE html><html lang="fr"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oriental Chic — Le Goût de la Tradition</title><link rel="icon" type="image/x-icon" href="favicon.ico"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"><style>:root {
       --dark: #1e1c19;
       --dark-sidebar: #252220;
       --gold: #b8923a;
@@ -141,6 +141,49 @@
       opacity: 0.4;
     }
 
+    /* ── CALL FAB TOOLTIP (desktop only) ── */
+    .call-fab-wrapper {
+      position: relative;
+    }
+
+    .call-fab-tooltip {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 10px);
+      right: 0;
+      background: #fff;
+      border: 1px solid rgba(184, 146, 58, 0.2);
+      border-radius: 10px;
+      padding: 0.7rem 1.1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+      white-space: nowrap;
+      animation: fadeUp 0.2s ease both;
+    }
+
+    .call-fab-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      right: 18px;
+      border: 6px solid transparent;
+      border-top-color: #fff;
+    }
+
+    .call-fab-tooltip.visible {
+      display: block;
+    }
+
+    /* ── CART DESKTOP CALL DISPLAY ── */
+    .cart-call-desktop {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--cream);
+      border: 1.5px solid rgba(184, 146, 58, 0.25);
+      border-radius: 10px;
+      padding: 1rem 1.3rem;
+    }
+
     /* ── MAIN CONTENT ── */
     main {
       margin-left: var(--sidebar-w);
@@ -209,6 +252,17 @@
       animation: fadeUp 0.7s 0.1s ease both;
     }
 
+    .hero-location {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9a8a6e;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.7s 0.15s ease both;
+    }
+
     .btn-primary {
       display: inline-block;
       background: var(--gold);
@@ -262,6 +316,31 @@
       cursor: pointer;
       text-decoration: none;
       color: inherit;
+    }
+
+    .product-card--custom {
+      border: 1.5px dashed var(--gold-dim);
+      background: linear-gradient(135deg, #fdfaf4 0%, #f5f0e8 100%);
+      position: relative;
+    }
+
+    .product-card--custom::before {
+      content: '❖ Sur mesure';
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.8;
+    }
+
+    .product-price--custom {
+      color: var(--gold-dim);
+      font-style: italic;
+      font-size: 0.82rem;
     }
 
     .product-card:hover {
@@ -1020,6 +1099,18 @@
       transform: translateY(-1px);
     }
 
+    .cart-call-btn.showing-number {
+      background: var(--dark);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .cart-call-btn.showing-number:hover {
+      background: #333;
+      transform: translateY(-1px);
+    }
+
     .cart-note {
       text-align: center;
       font-size: 0.75rem;
@@ -1255,7 +1346,7 @@
       #page-contact iframe {
         min-height: 260px;
       }
-    }</style><aside class="sidebar"><div class="logo"><div class="logo-icon"><svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5"><path d="M22 4 C22 4 14 12 14 20 C14 26 17.5 31 22 33 C26.5 31 30 26 30 20 C30 12 22 4 22 4Z"/><path d="M22 33 L22 40"/><path d="M10 22 C14 20 18 22 22 20 C26 18 30 20 34 18"/><circle cx="22" cy="33" r="1.5" fill="currentColor" stroke="none"/><path d="M16 14 C16 14 12 10 8 12" stroke-linecap="round"/><path d="M28 14 C28 14 32 10 36 12" stroke-linecap="round"/></svg></div><div class="logo-text">Oriental<br>Chic<br>Sidi-Aich</div></div><nav><a href="#" class="nav-item active" onclick="showPage('home', this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg> Accueil </a><a href="#" class="nav-item" onclick="showPage('carte', this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg> La Carte </a><a href="#" class="nav-item" onclick="showPage('contact', this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg> Contact & Accès</a></nav><div class="lang-switcher"><a href="#" class="active">FR</a> <span class="lang-divider">/</span> <a href="#">AR</a></div></aside><div class="mobile-topbar"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" style="width:28px;height:28px;color:var(--gold);flex-shrink:0;"><path d="M22 4 C22 4 14 12 14 20 C14 26 17.5 31 22 33 C26.5 31 30 26 30 20 C30 12 22 4 22 4Z"/><path d="M22 33 L22 40"/><path d="M10 22 C14 20 18 22 22 20 C26 18 30 20 34 18"/><circle cx="22" cy="33" r="1.5" fill="currentColor" stroke="none"/><path d="M16 14 C16 14 12 10 8 12" stroke-linecap="round"/><path d="M28 14 C28 14 32 10 36 12" stroke-linecap="round"/></svg><div class="logo-text" style="font-size:1.05rem;letter-spacing:0.2em;">Oriental Chic Sidi-Aich</div></div><div class="mobile-bottomnav"><nav><a href="#" class="nav-item active" id="mob-nav-home" onclick="showPage('home', this); syncMobileNav(this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg> Accueil </a><a href="#" class="nav-item" id="mob-nav-carte" onclick="showPage('carte', this); syncMobileNav(this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg> La Carte </a><a href="#" class="nav-item" id="mob-nav-contact" onclick="showPage('contact', this); syncMobileNav(this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg> Contact</a></nav></div><main><div id="page-home"><div class="hero-img"><img src="images/main-banner.png"></div><div class="hero-text"><h1 class="hero-title">Le Goût de la Tradition</h1><p class="hero-subtitle">L'authenticité d'autrefois, l'élégance d'aujourd'hui</p><a href="#" class="btn-primary" onclick="showPage('carte', null)">Découvrir la Carte</a></div><div class="inventory-highlight"><div class="inventory-highlight-header"><div class="inventory-highlight-label"><span class="highlight-pulse"></span> Produit du moment</div><div style="display:flex;align-items:center;gap:0.8rem;"><span class="highlight-counter" id="hl-counter">1 / 6</span><div class="highlight-controls"><button class="highlight-ctrl-btn" id="hl-prev" aria-label="Précédent">&#8249;</button> <button class="highlight-ctrl-btn" id="hl-next" aria-label="Suivant">&#8250;</button></div></div></div><div class="highlight-spotlight" id="hl-spotlight" onclick="openModal(hlIndex + 1)"><div class="highlight-spotlight-img-wrap" id="hl-img-wrap"></div><div class="highlight-spotlight-body" id="hl-body"></div></div><div class="highlight-progress"><div class="highlight-progress-bar" id="hl-progress-bar"></div></div><div class="highlight-dots" id="highlight-dots"></div></div><div class="ornament">✦ ✦ ✦</div><h2 class="section-title">Nos Spécialités</h2><div class="products-grid" id="featured-grid"></div><div class="about-strip"><div class="about-strip-text"><h2>Fait avec amour, depuis toujours</h2><p>Chaque gâteau est préparé à la main avec des ingrédients soigneusement sélectionnés — semoule dorée, miel pur, dattes fondantes et amandes de qualité. Une tradition familiale perpétuée avec passion.</div><a href="#" class="btn-outline" onclick="showPage('contact', null)">Nous Contacter</a></div></div><div id="page-carte" style="display:none"><h1 style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:400;margin-bottom:0.4rem;">La Carte</h1><p style="color:#8a7a65;font-size:0.9rem;margin-bottom:2.5rem;font-style:italic;">Toutes nos pâtisseries orientales artisanales<div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem;"><h2 class="section-title" style="margin-bottom:0;">Formules</h2><span style="display:inline-block;background:var(--gold);color:#fff;font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:0.28rem 0.75rem;border-radius:20px;white-space:nowrap;">Nouveau</span></div><p style="color:#8a7a65;font-size:0.85rem;margin-bottom:1.5rem;font-style:italic;">Nos assortiments soigneusement composés pour vous<div class="products-grid" id="formules-grid"></div><div class="ornament">✦ ✦ ✦</div><h2 class="section-title">À la carte</h2><p style="color:#8a7a65;font-size:0.85rem;margin-bottom:1.5rem;font-style:italic;">Choisissez à l'unité parmi toutes nos pâtisseries<div class="products-grid" id="full-grid"></div></div><div id="page-contact" style="display:none"><h1 style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:400;margin-bottom:0.4rem;">Contact & Accès</h1><p style="color:#8a7a65;font-size:0.9rem;margin-bottom:2.5rem;font-style:italic;">Nous sommes disponibles pour vos commandes personnalisées<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;"><div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);min-height:320px;"><iframe title="Sidi-Aïch, Béjaïa, Algérie" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54178!2d4.9!3d36.6333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128da4b78c84e8a7%3A0x6e7fbb3f16a64e97!2sSidi%20A%C3%AFch%2C%20B%C3%A9ja%C3%AFa%2C%20Algeria!5e0!3m2!1sfr!2sdz!4v1700000000000" width="100%" height="100%" style="border:0;display:block;min-height:320px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div style="display:flex;flex-direction:column;gap:1.2rem;"><div style="background:#fff;border-radius:14px;padding:1.8rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-bottom:1.2rem;color:var(--gold);">Informations</h3><div style="display:flex;flex-direction:column;gap:0.9rem;font-size:0.9rem;color:#666;"><div style="display:flex;gap:0.8rem;align-items:flex-start;"><span style="font-size:1.1rem;">📍</span><div><strong style="color:var(--dark);">Adresse</strong><br>Sidi-Aïch, Béjaïa, Algérie</div></div><div style="display:flex;gap:0.8rem;align-items:flex-start;"><span style="font-size:1.1rem;">🕐</span><div><strong style="color:var(--dark);">Horaires</strong><br>Sam – Jeu : 9h00 – 20h00<br>Ven : 15h00 – 17h00</div></div><div style="display:flex;gap:0.8rem;align-items:flex-start;"><span style="font-size:1.1rem;">📞</span><div><strong style="color:var(--dark);">Téléphone</strong><br>+213 553 28 23 95</div></div></div></div><div style="background:var(--dark-sidebar);border-radius:14px;padding:1.8rem;"><p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text-white);line-height:1.7;font-style:italic;">"Chaque commande est une promesse de qualité et d'authenticité. Nous livrons aussi pour vos événements spéciaux."</div></div></div></div></main><div class="cart-overlay" id="cart-modal" onclick="if(event.target===this)closeCartModal()"><div class="cart-modal"><div class="cart-modal-header"><h2>Votre Commande</h2><button class="modal-close" onclick="closeCartModal()">×</button></div><div class="cart-modal-body" id="cart-modal-body"></div><div class="cart-modal-footer" id="cart-modal-footer"></div></div></div><div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()"><div class="modal"><button class="modal-close" onclick="closeModal()">×</button><div class="modal-img-placeholder" id="modal-img-ph"></div><h3 id="modal-name"></h3><div class="modal-price" id="modal-price"></div><p class="modal-desc" id="modal-desc"><div class="modal-actions"><div class="qty-control"><button class="qty-btn" onclick="changeQty(-1)">−</button> <span class="qty-val" id="qty">1</span> <button class="qty-btn" onclick="changeQty(1)">+</button></div><button class="btn-primary" onclick="addToCart()">Ajouter au panier</button></div></div></div><div class="fab-group"><a class="call-fab" href="tel:+213553282395" aria-label="Appeler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg> </a><button class="cart-fab" onclick="openCartModal()" aria-label="Panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg> <span class="cart-count" id="cart-count">0</span></button></div><script>const formules = [
+    }</style><aside class="sidebar"><div class="logo"><div class="logo-icon"><svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5"><path d="M22 4 C22 4 14 12 14 20 C14 26 17.5 31 22 33 C26.5 31 30 26 30 20 C30 12 22 4 22 4Z"/><path d="M22 33 L22 40"/><path d="M10 22 C14 20 18 22 22 20 C26 18 30 20 34 18"/><circle cx="22" cy="33" r="1.5" fill="currentColor" stroke="none"/><path d="M16 14 C16 14 12 10 8 12" stroke-linecap="round"/><path d="M28 14 C28 14 32 10 36 12" stroke-linecap="round"/></svg></div><div class="logo-text">Oriental<br>Chic<br>Sidi-Aich</div></div><nav><a href="#" class="nav-item active" onclick="showPage('home', this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg> Accueil </a><a href="#" class="nav-item" onclick="showPage('carte', this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg> La Carte </a><a href="#" class="nav-item" onclick="showPage('contact', this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg> Contact & Accès</a></nav><div class="lang-switcher"><a href="#" class="active">FR</a> <span class="lang-divider">/</span> <a href="#">AR</a></div></aside><div class="mobile-topbar"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" style="width:28px;height:28px;color:var(--gold);flex-shrink:0;"><path d="M22 4 C22 4 14 12 14 20 C14 26 17.5 31 22 33 C26.5 31 30 26 30 20 C30 12 22 4 22 4Z"/><path d="M22 33 L22 40"/><path d="M10 22 C14 20 18 22 22 20 C26 18 30 20 34 18"/><circle cx="22" cy="33" r="1.5" fill="currentColor" stroke="none"/><path d="M16 14 C16 14 12 10 8 12" stroke-linecap="round"/><path d="M28 14 C28 14 32 10 36 12" stroke-linecap="round"/></svg><div class="logo-text" style="font-size:1.05rem;letter-spacing:0.2em;">Oriental Chic Sidi-Aich</div></div><div class="mobile-bottomnav"><nav><a href="#" class="nav-item active" id="mob-nav-home" onclick="showPage('home', this); syncMobileNav(this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg> Accueil </a><a href="#" class="nav-item" id="mob-nav-carte" onclick="showPage('carte', this); syncMobileNav(this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg> La Carte </a><a href="#" class="nav-item" id="mob-nav-contact" onclick="showPage('contact', this); syncMobileNav(this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg> Contact</a></nav></div><main><div id="page-home"><div class="hero-img"><img src="images/main-banner.png"></div><div class="hero-text"><h1 class="hero-title">Le Goût de la Tradition</h1><p class="hero-subtitle">L'authenticité d'autrefois, l'élégance d'aujourd'hui<p class="hero-location">Atelier artisanal de gâteaux traditionnels pour tous vos événements&ensp;·&ensp;Sidi Aïch &amp; environs</p><a href="#" class="btn-primary" onclick="showPage('carte', null)">Découvrir la Carte</a></div><div class="inventory-highlight"><div class="inventory-highlight-header"><div class="inventory-highlight-label"><span class="highlight-pulse"></span> Produit du moment</div><div style="display:flex;align-items:center;gap:0.8rem;"><span class="highlight-counter" id="hl-counter">1 / 6</span><div class="highlight-controls"><button class="highlight-ctrl-btn" id="hl-prev" aria-label="Précédent">&#8249;</button> <button class="highlight-ctrl-btn" id="hl-next" aria-label="Suivant">&#8250;</button></div></div></div><div class="highlight-spotlight" id="hl-spotlight" onclick="openModal(hlIndex + 1)"><div class="highlight-spotlight-img-wrap" id="hl-img-wrap"></div><div class="highlight-spotlight-body" id="hl-body"></div></div><div class="highlight-progress"><div class="highlight-progress-bar" id="hl-progress-bar"></div></div><div class="highlight-dots" id="highlight-dots"></div></div><div class="ornament">✦ ✦ ✦</div><h2 class="section-title">Nos Spécialités</h2><div class="products-grid" id="featured-grid"></div><div class="about-strip"><div class="about-strip-text"><h2>Fait avec amour, depuis toujours</h2><p>Chaque gâteau est préparé à la main avec des ingrédients soigneusement sélectionnés — semoule dorée, miel pur, dattes fondantes et amandes de qualité. Une tradition familiale perpétuée avec passion.</div><a href="#" class="btn-outline" onclick="showPage('contact', null)">Nous Contacter</a></div></div><div id="page-carte" style="display:none"><h1 style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:400;margin-bottom:0.4rem;">La Carte</h1><p style="color:#8a7a65;font-size:0.9rem;margin-bottom:2.5rem;font-style:italic;">Toutes nos pâtisseries orientales artisanales<div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem;"><h2 class="section-title" style="margin-bottom:0;">Formules</h2><span style="display:inline-block;background:var(--gold);color:#fff;font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:0.28rem 0.75rem;border-radius:20px;white-space:nowrap;">Nouveau</span></div><p style="color:#8a7a65;font-size:0.85rem;margin-bottom:1.5rem;font-style:italic;">Nos assortiments soigneusement composés pour vous<div class="products-grid" id="formules-grid"></div><div class="ornament">✦ ✦ ✦</div><h2 class="section-title">À la carte</h2><p style="color:#8a7a65;font-size:0.85rem;margin-bottom:1.5rem;font-style:italic;">Choisissez à l'unité parmi toutes nos pâtisseries<div class="products-grid" id="full-grid"></div></div><div id="page-contact" style="display:none"><h1 style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:400;margin-bottom:0.4rem;">Contact & Accès</h1><p style="color:#8a7a65;font-size:0.9rem;margin-bottom:2.5rem;font-style:italic;">Nous sommes disponibles pour vos commandes personnalisées<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;"><div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);min-height:320px;"><iframe title="Sidi-Aïch, Béjaïa, Algérie" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54178!2d4.9!3d36.6333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128da4b78c84e8a7%3A0x6e7fbb3f16a64e97!2sSidi%20A%C3%AFch%2C%20B%C3%A9ja%C3%AFa%2C%20Algeria!5e0!3m2!1sfr!2sdz!4v1700000000000" width="100%" height="100%" style="border:0;display:block;min-height:320px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div style="display:flex;flex-direction:column;gap:1.2rem;"><div style="background:#fff;border-radius:14px;padding:1.8rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin-bottom:1.2rem;color:var(--gold);">Informations</h3><div style="display:flex;flex-direction:column;gap:0.9rem;font-size:0.9rem;color:#666;"><div style="display:flex;gap:0.8rem;align-items:flex-start;"><span style="font-size:1.1rem;">📍</span><div><strong style="color:var(--dark);">Adresse</strong><br>Sidi-Aïch, Béjaïa, Algérie</div></div><div style="display:flex;gap:0.8rem;align-items:flex-start;"><span style="font-size:1.1rem;">🕐</span><div><strong style="color:var(--dark);">Horaires</strong><br>Sam – Jeu : 9h00 – 20h00<br>Ven : 15h00 – 17h00</div></div><div style="display:flex;gap:0.8rem;align-items:flex-start;"><span style="font-size:1.1rem;">📞</span><div><strong style="color:var(--dark);">Téléphone</strong><br>+213 553 28 23 95</div></div></div></div><div style="background:var(--dark-sidebar);border-radius:14px;padding:1.8rem;"><p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--text-white);line-height:1.7;font-style:italic;">"Chaque commande est une promesse de qualité et d'authenticité. Nous livrons aussi pour vos événements spéciaux."</div></div></div></div></main><div class="cart-overlay" id="cart-modal" onclick="if(event.target===this)closeCartModal()"><div class="cart-modal"><div class="cart-modal-header"><h2>Votre Commande</h2><button class="modal-close" onclick="closeCartModal()">×</button></div><div class="cart-modal-body" id="cart-modal-body"></div><div class="cart-modal-footer" id="cart-modal-footer"></div></div></div><div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()"><div class="modal"><button class="modal-close" onclick="closeModal()">×</button><div class="modal-img-placeholder" id="modal-img-ph"></div><h3 id="modal-name"></h3><div class="modal-price" id="modal-price"></div><p class="modal-desc" id="modal-desc"><div class="modal-actions" id="modal-actions-standard"><div class="qty-control"><button class="qty-btn" onclick="changeQty(-1)">−</button> <span class="qty-val" id="qty">1</span> <button class="qty-btn" onclick="changeQty(1)">+</button></div><button class="btn-primary" onclick="addToCart()">Ajouter au panier</button></div><div class="modal-actions" id="modal-actions-custom" style="display:none"><a class="cart-call-btn" id="modal-custom-call-btn" href="tel:+213553282395" onclick="return handleModalCustomCall(event, this)" aria-label="Appeler pour commander"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex-shrink:0;"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg> <span class="custom-call-label">Appeler pour commander</span></a></div></div></div><div class="fab-group"><div class="call-fab-wrapper" style="position:relative;"><a class="call-fab" id="call-fab-btn" href="tel:+213553282395" aria-label="Appeler" onclick="return handleCallFab(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></a><div class="call-fab-tooltip" id="call-fab-tooltip"><span style="font-size:0.75rem;color:#8a7a65;display:block;margin-bottom:0.15rem;letter-spacing:0.06em;text-transform:uppercase;">Appelez-nous</span> <span style="font-size:1.05rem;font-weight:600;color:var(--dark);letter-spacing:0.04em;">+213 553 28 23 95</span></div></div><button class="cart-fab" onclick="openCartModal()" aria-label="Panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg> <span class="cart-count" id="cart-count">0</span></button></div><script>const formules = [
       {
         id: 10000, name: 'Formule Aid l\'essentiel', price: 1350.00,
         imgs: ['images/box_essentiel/box_essentiel_00.png'],
@@ -1265,13 +1356,18 @@
         id: 10001, name: 'Formule Aid Prestige', price: 1850.00,
         imgs: ['images/box_prestige/box_prestige_00.png'],
         desc: 'Un assortiment raffiné de gateaux traditionnels : Bniwen, Makrout, Sables et Tcharak, Idéal pour offrir ou pour sublimer vos réceptions.'
+      },
+      {
+        id: -1, name: 'Composez Votre Formule', price: null,
+        imgs: ['images/formule_custom/formule_custom_00.png'],
+        desc: "Vous avez une envie précise ? Nous composons pour vous un plateau sur mesure selon vos goûts, l'occasion et le nombre d'invités. Contactez-nous pour discuter de votre commande personnalisée."
       }
     ];
 
     const products = [
       {
         id: 0, name: 'Sables', price: 40.00,
-        imgs: ['images/sable/sable_00.png', 'images/sable/sable_01.png', 'images/sable/sable_02.png'],
+        imgs: ['images/sable/sable_00.png', 'images/sable/sable_01.png'],
         desc: 'Deux biscuits ultra-fondants au bon goût de beurre, réunis par un cœur généreux de confiture de fruits. Finement décorés d\'un voile de sucre glace optionnel, ces classiques indémodables fondent littéralement en bouche pour accompagner vos pauses thé avec douceur.'
       },
       {
@@ -1288,22 +1384,22 @@
         desc: 'Deux biscuits fondants au cacao soudés par une crème onctueuse. Délicieusement enrobé de cacahuètes grillées et surmonté d\'un voile de chocolat, il offre un équilibre parfait entre douceur et croquant.'
       },
       {
-        id: 3, name: 'Makrout la3sel', price: 8.00,
+        id: 3, name: 'Makrout la3sel', price: 70.00,
         imgs: ['images/makrout/makrout_00.png', 'images/makrout/makrout_01.png'],
         desc: 'Biscuits fondants à la semoule fine parsemés de noix concassées, délicatement parfumés à la vanille et au zeste de citron.'
       },
       {
-        id: 4, name: 'Bniwen', price: 9.00,
+        id: 4, name: 'Bniwen', price: 100.00,
         imgs: ['images/bniwen/bniwen_00.png'],
         desc: 'Une irrésistible alliance de biscuits émiettés, d\'amandes croquantes et de halwa turc, liée par un mélange fondant de beurre et de miel. Enrobée d\'un fin glaçage au chocolat, cette gourmandise algérienne sans cuisson offre une explosion de textures et de saveurs en une seule bouchée.'
       },
       {
-        id: 5, name: 'M\'chawak', price: 6.00,
+        id: 5, name: 'M\'chawak', price: 100.00,
         imgs: ['images/mchawak/mchawak_00.png', 'images/mchawak/mchawak_01.png'],
         desc: 'Un petit four algérien traditionnel, dont le cœur aux amandes et au zeste de citron offre un fondant exceptionnel après un passage au miel. Enrobé d\'amandes effilées ou concassées pour un contraste craquant, il est surmonté d\'une cerise confite pour une touche de gourmandise absolue'
       },
       {
-        id: 6, name: 'Baklawa Royale', price: 11.00,
+        id: 6, name: 'Baklawa Royale', price: 180.00,
         imgs: ['images/baklawa/baklawa_00.png', 'images/baklawa/baklawa_01.png'],
         desc: 'Une superposition de fines feuilles de pâte croustillante, garnie d\'un cœur généreux d\'amandes ou de noix parfumées à la fleur d\'oranger. Entièrement arrosé de miel pur après cuisson, ce trésor de la pâtisserie algérienne offre un fondant et un croquant d\'une finesse incomparable.'
       },
@@ -1323,17 +1419,22 @@
 
     function renderGrid(containerId, items) {
       const grid = document.getElementById(containerId);
-      grid.innerHTML = items.map(p => `
-        <a class="product-card" href="#" onclick="openModal(${p.id}); return false;">
+      grid.innerHTML = items.map(p => {
+        const isCustom = p.id === -1;
+        return `
+        <a class="product-card${isCustom ? ' product-card--custom' : ''}" href="#" onclick="openModal(${p.id}); return false;">
           <img class="product-thumb" src="${p.imgs[0]}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
           <div class="product-thumb-placeholder" style="display:none">🍪</div>
           <div class="product-info">
             <div class="product-name">${p.name}</div>
             <div class="product-desc">${p.desc}</div>
-            <div class="product-price">${p.price.toFixed(2)} DA</div>
+            ${isCustom
+              ? '<div class="product-price product-price--custom">Sur mesure &nbsp;❖</div>'
+              : `<div class="product-price">${p.price.toFixed(2)} DA</div>`
+            }
           </div>
-        </a>
-      `).join('');
+        </a>`;
+      }).join('');
     }
 
     renderGrid('featured-grid', products.slice(0, 4));
@@ -1365,9 +1466,24 @@
 
     function openModal(id) {
       currentProduct = allProducts.find(p => p.id === id);
+      const isCustom = currentProduct.id === -1;
       document.getElementById('modal-name').textContent = currentProduct.name;
-      document.getElementById('modal-price').textContent = currentProduct.price.toFixed(2) + ' DA';
+      const priceEl = document.getElementById('modal-price');
+      if (isCustom) {
+        priceEl.textContent = 'Formule sur mesure';
+        priceEl.style.cssText = 'font-style:italic;font-size:0.95rem;color:var(--gold-dim)';
+      } else {
+        priceEl.textContent = currentProduct.price.toFixed(2) + ' DA';
+        priceEl.style.cssText = '';
+      }
       document.getElementById('modal-desc').textContent = currentProduct.desc;
+      document.getElementById('modal-actions-standard').style.display = isCustom ? 'none' : '';
+      document.getElementById('modal-actions-custom').style.display  = isCustom ? ''     : 'none';
+      if (isCustom) {
+        const btn = document.getElementById('modal-custom-call-btn');
+        btn.classList.remove('showing-number');
+        btn.querySelector('.custom-call-label').textContent = 'Appeler pour commander';
+      }
 
       const imgs = currentProduct.imgs;
       const ph = document.getElementById('modal-img-ph');
@@ -1473,17 +1589,23 @@
             <span class="cart-total-label">Total</span>
             <span class="cart-total-amount">${total.toFixed(2)} DA</span>
           </div>
-          <a class="cart-call-btn" href="tel:+213558282395" aria-label="Appeler pour commander">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;">
+          <a class="cart-call-btn" id="cart-call-btn" href="tel:+213553282395" aria-label="Appeler pour commander" onclick="return handleCartCall(event, this)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex-shrink:0;">
               <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/>
             </svg>
-            Appeler pour commander
+            <span class="cart-call-label">Appeler pour commander</span>
           </a>
           <p class="cart-note">Le paiement en ligne n'est pas encore disponible — passez votre commande par téléphone.</p>
         `;
       }
 
       document.getElementById('cart-modal').classList.add('open');
+      // Reset call button state
+      const ccBtn = document.getElementById('cart-call-btn');
+      if (ccBtn) {
+        ccBtn.classList.remove('showing-number');
+        ccBtn.querySelector('.cart-call-label').textContent = 'Appeler pour commander';
+      }
     }
 
     function closeCartModal() {
@@ -1509,7 +1631,7 @@
 
     // ── INVENTORY HIGHLIGHT SPOTLIGHT ──
     // Spotlight cycles through ALL items: formules first, then à la carte
-    const hlItems = [...formules, ...products];
+    const hlItems = [...formules.filter(f => f.id !== -1), ...products];
     const badges = ['Coup de cœur', 'Nouveau', 'Best-seller', 'Populaire', 'Exclusif', 'Artisanal'];
     const HL_DURATION = 4000; // ms per product
 
@@ -1621,4 +1743,56 @@
     document.getElementById('hl-spotlight').addEventListener('mouseenter', stopHlAuto);
     document.getElementById('hl-spotlight').addEventListener('mouseleave', startHlAuto);
 
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeCartModal(); } });</script>
+    function handleModalCustomCall(e, el) {
+      const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+      if (isTouch) return true;
+      e.preventDefault();
+      const label = el.querySelector('.custom-call-label');
+      if (el.classList.contains('showing-number')) {
+        label.textContent = 'Appeler pour commander';
+        el.classList.remove('showing-number');
+      } else {
+        label.textContent = '+213 553 28 23 95';
+        el.classList.add('showing-number');
+      }
+      return false;
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeCartModal(); } });
+
+    // ── DEVICE DETECTION FOR CALL BUTTONS ──
+    function handleCartCall(e, el) {
+      if (isTouchDevice()) return true; // dial on mobile
+      e.preventDefault();
+      const label = el.querySelector('.cart-call-label');
+      if (el.classList.contains('showing-number')) {
+        label.textContent = 'Appeler pour commander';
+        el.classList.remove('showing-number');
+      } else {
+        label.textContent = '+213 553 28 23 95';
+        el.classList.add('showing-number');
+      }
+      return false;
+    }
+
+    function isTouchDevice() {
+      return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    }
+
+    // Call FAB: on desktop show/hide tooltip instead of calling
+    function handleCallFab(e) {
+      if (isTouchDevice()) return true;
+      e.preventDefault();
+      const tooltip = document.getElementById('call-fab-tooltip');
+      tooltip.classList.toggle('visible');
+      return false;
+    }
+
+    // Hide tooltip when clicking elsewhere
+    document.addEventListener('click', function(e) {
+      const wrapper = document.querySelector('.call-fab-wrapper');
+      const tooltip = document.getElementById('call-fab-tooltip');
+      if (tooltip && wrapper && !wrapper.contains(e.target)) {
+        tooltip.classList.remove('visible');
+      }
+    });</script>
