@@ -1782,6 +1782,7 @@ fbq('track', 'PageView');</script><noscript><img height="1" width="1" style="dis
     document.getElementById('hl-spotlight').addEventListener('mouseleave', startHlAuto);
 
     function handleModalCustomCall(e, el) {
+      fbq('track', 'Contact');
       const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
       if (isTouch) return true;
       e.preventDefault();
@@ -1800,6 +1801,7 @@ fbq('track', 'PageView');</script><noscript><img height="1" width="1" style="dis
 
     // ── DEVICE DETECTION FOR CALL BUTTONS ──
     function handleCartCall(e, el) {
+      fbq('track', 'Contact');
       if (isTouchDevice()) return true; // dial on mobile
       e.preventDefault();
       const label = el.querySelector('.cart-call-label');
@@ -1819,6 +1821,7 @@ fbq('track', 'PageView');</script><noscript><img height="1" width="1" style="dis
 
     // Call FAB: on desktop show/hide tooltip instead of calling
     function handleCallFab(e) {
+      fbq('track', 'Contact');
       if (isTouchDevice()) return true;
       e.preventDefault();
       const tooltip = document.getElementById('call-fab-tooltip');
